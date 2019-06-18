@@ -1,0 +1,18 @@
+html
+    head
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js')
+        script(src='https://code.jquery.com/jquery-3.4.1.js', integrity='sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=', crossorigin='anonymous')
+        script(src='/static/prism.js')
+        link(rel='stylesheet', href='/static/prism.css')
+    body
+        pre 
+            code(class=`language-${language}`)=content      
+        script.
+            html2canvas(document.body, {
+                onrendered: function(canvas) {
+                    var imageType = 'image/png';
+                    var imageData = canvas.toDataURL(imageType);
+                    var image = "<image width='100%' src='" + imageData + "'></image>"
+                    document.write(image);
+                }
+            })
