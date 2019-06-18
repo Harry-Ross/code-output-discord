@@ -13,6 +13,8 @@ const { token } = require('./token.json');
 var routes = require('./routes/index');
 app.use('/', routes);
 
+const PORT = 3000 || process.env.PORT;
+
 app.use('/static' , express.static("views/static"));
 
 client.once('ready', () => {
@@ -39,7 +41,7 @@ client.on('message', message => {
     }
 })
 
-app.listen(3000, function () {
+app.listen(PORT, function () {
     console.log("express server running")
 });
 
