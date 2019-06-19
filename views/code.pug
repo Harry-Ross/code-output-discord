@@ -8,7 +8,7 @@ html
         pre 
             code(class=`language-${language}`)=content      
         script.
-            html2canvas(document.body.pre.code, {
+            html2canvas(document.getElementsByTagName("pre"), {
                 onrendered: function(canvas) {
                     var imageType = 'image/png';
                     var imageData = canvas.toDataURL(imageType);
